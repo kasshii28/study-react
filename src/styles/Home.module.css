@@ -8,10 +8,10 @@
 }
 
 .description {
-  display: inherit;
+  display: flex;
   justify-content: center;
-  align-items: inherit;
-  font-size: 0.85rem;
+  align-items: center;
+  font-size: .85rem;
   max-width: var(--max-width);
   width: 100%;
   z-index: 2;
@@ -29,8 +29,8 @@
   position: relative;
   margin: 0;
   padding: 1rem;
-  background-color: rgba(var(--callout-rgb), 0.5);
-  border: 1px solid rgba(var(--callout-border-rgb), 0.3);
+  background-color: rgba(var(--callout-rgb),.5);
+  border: 1px solid rgba(var(--callout-border-rgb),.3);
   border-radius: var(--border-radius);
 }
 
@@ -44,6 +44,13 @@
   grid-template-columns: repeat(4, minmax(25%, auto));
   width: var(--max-width);
   max-width: 100%;
+}
+
+.title{
+  display: flex;
+  justify-content: center;
+  text-transform: capitalize;
+  padding: 1.2rem;
 }
 
 .card {
@@ -66,7 +73,6 @@
 
 .card p {
   margin: 0;
-  opacity: 0.6;
   font-size: 0.9rem;
   line-height: 1.5;
   max-width: 30ch;
@@ -99,13 +105,18 @@
 .center::after {
   content: '';
   left: 50%;
-  position: absolute;
   filter: blur(45px);
   transform: translateZ(0);
 }
 
 .logo {
-  position: relative;
+  position: absolute;
+}
+
+@media (min-width: 700px){
+  .title{
+    margin-bottom: 2.5rem;
+  }
 }
 /* Enable hover only on non-touch devices */
 @media (hover: hover) and (pointer: fine) {
@@ -210,10 +221,9 @@
 }
 
 @media (prefers-color-scheme: dark) {
-  .vercelLogo {
-    filter: invert(1);
+  .vercellogo{
+    filter:invert(0)
   }
-
   .logo {
     filter: invert(1) drop-shadow(0 0 0.3rem #ffffff70);
   }
