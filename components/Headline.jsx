@@ -3,14 +3,12 @@ import Image from 'next/image'
 
 
 export function Headline(props){
-    console.log(props)
-    return (
+     return (
         <div>
-            <h1 className={styles.title}>{props.page}page</h1>
-            <div className={styles.description}>
+            <h1 className={styles.title}>{props.page}page</h1><div className={styles.description}>
                 <p>
                     Get started by editing&nbsp;
-                    <code className={styles.code}>src/pages/{props.page}.js</code>
+                    {props.children}
                 </p>
                 <div>
                     <a 
