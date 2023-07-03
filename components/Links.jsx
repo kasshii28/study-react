@@ -1,6 +1,6 @@
 import styles from './Links.module.css'
 
-export function Links(){
+export const Links = (() =>{
     return (
     <div className={styles.grid}>
             <a
@@ -61,4 +61,4 @@ export function Links(){
         </a>
     </div>
     )
-}
+})
