@@ -4,7 +4,7 @@ import Image from 'next/image'
 
 export const Headline = ((props) =>{
      return (
-        <div>
+        <>
             <h1 className={styles.title}>{props.page}page</h1><div className={styles.description}>
                 <p>
                     Get started by editing&nbsp;
@@ -38,6 +38,6 @@ export const Headline = ((props) =>{
                 priority
             />
             </div>
-        </div>
+        </>
     );
 })
