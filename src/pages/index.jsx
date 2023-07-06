@@ -25,8 +25,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header/>
-      <a  href="/about"onClick={handleClick}>
-      ボタン</a>
+      <Link  href="/about"　onClick={handleClick}>ボタン</Link>
       <Main page="index"/>
 
       <Footer/>
