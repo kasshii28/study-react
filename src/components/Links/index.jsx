@@ -1,4 +1,4 @@
-import styles from 'src/components/Links.module.css'
+import styles from 'src/components/Links/Links.module.css'
 
 const LINKS = [
     { href: "https://nextjs.org/docs?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app",
