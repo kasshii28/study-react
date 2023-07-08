@@ -6,7 +6,21 @@ import { useCallback , useState , useEffect} from 'react';
 
 
 export default function Home() {
-  const [count, setCount] = useState(1)
+  const [count, setCount] = useState(1);
+  const [text, setText] = useState("");
+  const [isShow, setIsShow] = useState(true);
+  
+  const handleChange = useCallback((e) =>{
+    if(e.target.value.length > 5){
+      alert("５文字を超えています");
+      return ;
+    }
+    setText(e.target.value.trim());
+  },[]);
+  
+  const handleDisplay = ()=>{
+    setIsShow((isShow) => !isShow);
+  }
   
   const handleClick = useCallback(()=>{
     if(count<10){
@@ -22,6 +36,7 @@ export default function Home() {
     }
   },[count])
 
+
   return (
     <>
       <Head>
@@ -31,10 +46,11 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header/>
-      <h1>{count}</h1>
-      <button  onClick={handleClick}>ボタン</button>
+      {isShow ?<h1>{count}</h1>:null}
+      <button onClick={handleClick}>ボタン</button>
+      <button onClick={handleDisplay}>{isShow ? "非表示": "表示"}</button>
+      <input type="text" value={text} onChange={handleChange}/>
       <Main page="index"/>
-
       <Footer/>
     </>
   );
