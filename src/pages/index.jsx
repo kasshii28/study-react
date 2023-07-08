@@ -9,7 +9,7 @@ import { useState } from 'react';
 export default function Home() {
   const [count, setCount] = useState(1)
   
-  const handleClick = useCallback((e)=>{
+  const handleClick = ((e)=>{
     setCount((count)=>count+1);
     setCount((count)=>count+1);
   },[]);
