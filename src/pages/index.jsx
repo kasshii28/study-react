@@ -1,19 +1,26 @@
 import Head from 'next/head'
-import Link from 'next/link'
 import { Footer } from 'src/components/Footer';
 import { Main } from 'src/components/Main';
 import { Header } from 'src/components/Header';
-import { useState } from 'react';
+import { useCallback , useState , useEffect} from 'react';
 
 
 export default function Home() {
   const [count, setCount] = useState(1)
   
-  const handleClick = ((e)=>{
-    setCount((count)=>count+1);
-    setCount((count)=>count+1);
-  },[]);
+  const handleClick = useCallback((e)=>{
+    if(count<10){
+      setCount((count)=>count+1);
+    }
+  },[count]);
 
+  useEffect(() =>{
+    console.log('foo')
+    document.body.style.backgroundColor = "lightblue";
+    return () =>{
+      document.body.style.backgroundColor = "";
+    }
+  },[count])
 
   return (
     <>
@@ -25,7 +32,7 @@ export default function Home() {
       </Head>
       <Header/>
       <h1>{count}</h1>
-      <button  href="/about" onClick={handleClick}>ボタン</button>
+      <button  onClick={handleClick}>ボタン</button>
       <Main page="index"/>
 
       <Footer/>
