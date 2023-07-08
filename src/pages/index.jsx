@@ -1,21 +1,19 @@
 import Head from 'next/head'
 import Link from 'next/link'
-import { Inter } from 'next/font/google'
 import { Footer } from 'src/components/Footer';
 import { Main } from 'src/components/Main';
 import { Header } from 'src/components/Header';
-import { useCallback } from 'react';
+import { useState } from 'react';
 
-const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
-  const foo = 1
+  const [count, setCount] = useState(1)
   
   const handleClick = useCallback((e)=>{
-    console.log(e.target.href);
-    e.preventDefault();
-    alert(foo);
+    setCount((count)=>count+1);
+    setCount((count)=>count+1);
   },[]);
+
 
   return (
     <>
@@ -26,7 +24,8 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header/>
-      <Link  href="/about" onClick={handleClick}>ボタン</Link>
+      <h1>{count}</h1>
+      <button  href="/about" onClick={handleClick}>ボタン</button>
       <Main page="index"/>
 
       <Footer/>
